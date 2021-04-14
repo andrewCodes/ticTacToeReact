@@ -1,13 +1,192 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Zen Dots', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, #7bf1a8, #c1fba4);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+li {
+    display: inline;
+    margin: auto;
+}
+  
+.square {
+    background-image: linear-gradient(to bottom right, #7bf1a8, #c1fba4);
+    border: 0;
+    font-family: inherit;
+    font-size: 2.4rem;
+    font-weight: bold;
+    height: 5rem;
+    padding: 0;
+    text-align: center;
+    width: 5rem;
+    cursor: pointer;
+    transition: background-image .2s;
+}
+
+.square:hover {
+    background-image: linear-gradient(to bottom right, #46EC86, #A2F976);
+}
+
+.square:first-of-type {
+    border-top-left-radius: 5px;
+}
+
+.square:last-of-type {
+    border-bottom-right-radius: 5px;
+}
+
+.square:nth-of-type(3) {
+    border-top-right-radius: 5px;
+}
+
+.square:nth-of-type(7) {
+    border-bottom-left-radius: 5px;
+}
+  
+.square:focus {
+    outline: none;
+}
+  
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+  
+.game {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,.8);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.game-board-holder {
+      align-self: center;
+      justify-content: center;
+      margin-bottom: 3.2rem;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+      animation: popIn 1s ease-in-out;
+}
+
+.game-board {
+      display: grid;
+      grid-template-columns: repeat(3, 5rem);
+      grid-template-rows: repeat(3, 5rem);
+      grid-gap: 2px;
+      border-radius: 5px;
+}
+  
+.game-info {
+    text-align: center;
+    width: 44rem;
+    font-size: 3.2rem;
+    margin-bottom: 3.2rem;
+}
+
+.game-moves__list {
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.game-moves__list > .game-moves__list-item:not(:first-of-type) > button > svg {
+    display: none;
+}
+
+.game-moves__btn {
+    cursor: pointer;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 .5rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    background-image: linear-gradient(to bottom right, #7bf1a8, #c1fba4);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    transition: background-image .2s;
+}
+
+.game-moves__btn:hover {
+    background-image: linear-gradient(to bottom right, #46EC86, #A2F976);
+}
+
+.new-game-btn {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    background-image: linear-gradient(to bottom right, #7bf1a8, #c1fba4);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    margin: auto;
+    transition: background-image .2s;
+}
+
+.new-game-btn:hover {
+    background-image: linear-gradient(to bottom right, #46EC86, #A2F976);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-width: 26.25em) {
+    html {
+        font-size: 40%;
+    }
 }
